@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT Registration System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>CBT Registration System</h1>
+        <p>Practice interface based on real CBT operations experience</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Candidate Information</h2>
+
+            <form id="registrationForm">
+
+                <label>Full Name</label>
+                <input type="text" id="name" placeholder="Enter full name" required>
+
+                <label>Email Address</label>
+                <input type="email" id="email" placeholder="Enter email" required>
+
+                <label>Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter phone number" required>
+
+                <label>Exam Type</label>
+                <select id="exam">
+                    <option value="">Select Exam</option>
+                    <option>JAMB</option>
+                    <option>WAEC</option>
+                    <option>NECO</option>
+                </select>
+
+                <label>State</label>
+                <input type="text" id="state" placeholder="Enter state" required>
+
+                <button type="submit">Submit Registration</button>
+
+            </form>
+
+            <p id="successMessage" style="display:none; color: green; margin-top: 10px;">
+                Registration submitted successfully.
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Practice Project by Ekenedilichukwu Ndidigwe</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById("registrationForm");
+        const message = document.getElementById("successMessage");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const exam = document.getElementById("exam").value;
+
+            if (exam === "") {
+                alert("Please select an exam type.");
+                return;
+            }
+
+            message.style.display = "block";
+            form.reset();
+        });
+    </script>
+
+</body>
+</html>
